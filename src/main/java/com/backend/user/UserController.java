@@ -1,6 +1,6 @@
 package com.backend.user;
 
-import com.backend.Service.MemestagramService;
+import com.backend.service.MemestagramService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
