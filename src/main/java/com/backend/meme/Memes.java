@@ -1,5 +1,6 @@
-package com.backend.Entity;
+package com.backend.meme;
 
+import com.backend.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

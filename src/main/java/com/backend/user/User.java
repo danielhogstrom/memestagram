@@ -1,4 +1,4 @@
-package com.backend.Entity;
+package com.backend.user;
 
 
 import lombok.AllArgsConstructor;
