@@ -16,25 +16,19 @@ public class UserController {
     @Autowired
     UserRepository repository;
 
-
-    @GetMapping("/")
-    public String test() {
-        return "hello hello";
-    }
-
-
     @PostMapping("/adduser")
     public User addUser(@RequestBody User user) {
         return repository.save(user);
     }
 
-    @GetMapping("/adduser")
-    List<User> addMeme() {
+    @GetMapping ("/adduser")
+    List<User> addUser (){
         return repository.findAll();
     }
 
+    //to validate if user that tries to log in has user privileges (is a registered user)
     @PostMapping("/validate")
-    boolean loginUser(@RequestBody LoginForm loginForm) {
+    boolean loginUser(@RequestBody LoginForm loginForm){
         if (repository.findByUsername(loginForm.getUsername()) == null)
             return false;
         return service.validate(repository.findByUsername(loginForm.getUsername()), loginForm.getPassword());
