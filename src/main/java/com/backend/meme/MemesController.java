@@ -7,18 +7,20 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins = "http://localhost:3000")
 public class MemesController {
 
-    @Autowired MemesRepository repository;
+    @Autowired
+    MemesRepository repository;
 
-@GetMapping ("/addmeme")
-List<Memes> addMeme (){
-    return repository.findAll();
-}
+    @GetMapping("/addmeme")
+    List<Memes> addMeme() {
+        return repository.findAll();
+    }
 
-@PostMapping ("/addmeme")
-Memes postMeme (@RequestBody Memes meme) {
-return repository.save(meme);
-}
+    @PostMapping("/addmeme")
+    Memes postMeme(@RequestBody Memes meme) {
+        return repository.save(meme);
+    }
 
 }
