@@ -4,6 +4,7 @@ import com.backend.meme.Memes;
 import com.backend.service.MemestagramService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class UserController {
 
 
     @GetMapping("/")
-    public String test () {
+    public String test() {
         return "hello hello";
     }
 
@@ -27,15 +28,26 @@ public class UserController {
         return repository.save(user);
     }
 
-    @GetMapping ("/adduser")
-    List<User> addMeme (){
+    @GetMapping("/adduser")
+    List<User> addMeme() {
         return repository.findAll();
     }
 
     @PostMapping("/validate")
-    boolean loginUser(@RequestBody LoginForm loginForm){
+    boolean loginUser(@RequestBody LoginForm loginForm) {
         if (repository.findByUsername(loginForm.getUsername()) == null)
             return false;
         return service.validate(repository.findByUsername(loginForm.getUsername()), loginForm.getPassword());
     }
+
+
+    @PostMapping("/images")
+    public String addPicture(@RequestParam MultipartFile imageFile) throws Exception {
+        service.saveImage(imageFile);
+        service.saveImageAWS(imageFile);
+
+        return "Din bild har skickats";
+    }
+
+
 }
