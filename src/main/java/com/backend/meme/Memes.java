@@ -16,13 +16,8 @@ public class Memes {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
-    private String picURL;
+    private String picurl;
     private String description;
-    Integer likes;
-    String comments;
 
 
 
