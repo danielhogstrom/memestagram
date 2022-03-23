@@ -75,7 +75,7 @@ public class UserController {
         //Sessionen har invaliderats på servern. ÄVen om cookien är kvar har vi loggat ut.
         //det viktiga är att ta bort cookien på servern. Den måste hitta ett nytt sen. Kommer inte få det gamla längre.
         //alltså är vi utloggade.
-        //gamla sessionsobjektet är borta.
+        //gamla sessionsobjektet är borta..
         return 1;
     }
 
