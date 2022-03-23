@@ -4,6 +4,7 @@ import com.backend.meme.Memes;
 import com.backend.service.MemestagramService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.bind.support.SessionStatus;
 
 import javax.servlet.http.*;
@@ -35,7 +36,7 @@ public class UserController {
         if (repository.findByUsername(loginForm.getUsername()) == null) {
             return false;
         }else {
-            session.setAttribute("currentUser", loginForm.getUsername());
+            session.setAttribute("username", loginForm.getUsername());
             return service.validate(repository.findByUsername(loginForm.getUsername()), loginForm.getPassword());
         }
 
@@ -49,6 +50,19 @@ public class UserController {
         }*/
         return repository.findByUsername(username);
     }
+
+
+    @PostMapping("/images")
+    public String addPicture(@RequestParam MultipartFile imageFile) throws Exception {
+        service.saveImage(imageFile);
+        service.saveImageAWS(imageFile);
+        return "Din bild har skickats";
+    }
+        //to see a specific users page
+        @GetMapping("/{username}")
+        User getUser (@PathVariable ("username") String username){
+            return repository.findByUsername(username);
+        }
 
     @PostMapping("/removeSession")
     public int logOut(HttpSession session, HttpServletResponse response){

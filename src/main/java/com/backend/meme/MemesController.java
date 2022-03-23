@@ -9,7 +9,7 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequestMapping("/api/meme")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 public class MemesController {
 
     @Autowired
@@ -31,7 +31,16 @@ public class MemesController {
         return repository.save(meme);
     }
 
+    @PutMapping("/id/{id}/likes/{likes}")
+        public void editLikes (@PathVariable Long id, @PathVariable Long likes) {
+        Memes meme = repository.getById(id);
+        meme.setLikes(likes);
+        repository.save(meme);
+    }
 
-
+    @DeleteMapping("/delete/id/{id}")
+        public void deleteMeme (@PathVariable Long id){
+        repository.deleteById(id);
+    }
 
 }
