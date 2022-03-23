@@ -30,4 +30,17 @@ public class MemesController {
         log.info("New meme added to MemeRepository - {}", meme);
         return repository.save(meme);
     }
+
+    @PutMapping("/id/{id}/likes/{likes}")
+        public void editLikes (@PathVariable Long id, @PathVariable Long likes) {
+        Memes meme = repository.getById(id);
+        meme.setLikes(likes);
+        repository.save(meme);
+    }
+
+    @DeleteMapping("/delete/id/{id}")
+        public void deleteMeme (@PathVariable Long id){
+        repository.deleteById(id);
+    }
+
 }

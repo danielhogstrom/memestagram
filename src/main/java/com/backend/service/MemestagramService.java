@@ -44,11 +44,11 @@ public class MemestagramService {
 
     public void saveImageAWS(MultipartFile imageFile) throws Exception {
         String bucketName = "memestagram";
-        String fileName = "/photos/" + imageFile.getOriginalFilename(); //Path for the file
+        String fileName = "/photos/" + imageFile.getOriginalFilename();
         System.out.format("Uploading %s to S3 bucket %s...\n", fileName, bucketName);
         final AmazonS3 s3 = AmazonS3ClientBuilder.standard().withRegion(Regions.EU_NORTH_1).build();
         try {
-            s3.putObject(bucketName, imageFile.getOriginalFilename(), new File(fileName)); // Post the file to bucket, with filename
+            s3.putObject(bucketName, fileName, new File(fileName));
         } catch (AmazonServiceException e) {
             System.err.println(e.getErrorMessage());
             System.exit(1);
@@ -56,12 +56,13 @@ public class MemestagramService {
         getpicURL(imageFile.getOriginalFilename());
     }
 
-
     public void getpicURL(String filename) {
         AmazonS3 s3 = AmazonS3ClientBuilder.standard().withRegion(Regions.EU_NORTH_1).build();
         URL URL = s3.getUrl("memestagram", filename); // Gets URL from memestagram-bucket with the filename that is entered
         System.out.println(URL);
     }
+
+
 
 }
 
