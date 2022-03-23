@@ -1,5 +1,6 @@
 package com.backend.meme;
 
+import com.backend.user.User;
 import lombok.*;
 
 import javax.persistence.*;
@@ -17,6 +18,9 @@ public class Memes {
     @Column(name = "memecreatedbyuser")
     private String memeCreatedByUser;
     private Long likes;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
+    private User user;
 
 
 
