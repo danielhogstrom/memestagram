@@ -1,16 +1,10 @@
 package com.backend.meme;
 
-import com.backend.user.User;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
+
+@Data
 @Entity
 public class Memes {
     @Id
@@ -18,6 +12,8 @@ public class Memes {
     private Long id;
     private String picurl;
     private String description;
+    @Column(name = "memecreatedbyuser")
+    private String memeCreatedByUser;
 
 
 
