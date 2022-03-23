@@ -41,8 +41,10 @@ public class UserController {
 
     }
 
+
     @PostMapping("/images")
     public String addPicture(@RequestParam MultipartFile imageFile) throws Exception {
+        service.saveImage(imageFile);
         service.saveImageAWS(imageFile);
 
         return "Din bild har skickats";
