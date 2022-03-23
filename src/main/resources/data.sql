@@ -1,2 +1,7 @@
 INSERT INTO USERTABLE (USERNAME, PASSWORD, EMAIL) VALUES ('Ante', 'password123', 'as@mail.com')
 INSERT INTO MEMES (PICURL, DESCRIPTION) VALUES ('https://i.imgur.com/x51rrjw.jpeg','lol')
+INSERT INTO MEMES (PICURL, DESCRIPTION) VALUES ('https://i.imgur.com/x51rrjw.jpeg','lol')
+INSERT INTO MEMES (PICURL, DESCRIPTION) VALUES ('https://i.redd.it/u6tq6p0l2vo81.png','lol111')
+INSERT INTO MEMES (PICURL, DESCRIPTION) VALUES ('https://media2.giphy.com/media/IfxBjGrbIK3vwkODkA/giphy.gif?cid=ecf05e47dcdcgxqy3whpd396c7f9v7h4f9xjzihi2vkmmz8f&rid=giphy.gif&ct=g','lol222')
+INSERT INTO MEMES (PICURL, DESCRIPTION) VALUES ('https://i.redd.it/c3r6vmjfvwo81.jpg','lol333')
+INSERT INTO MEMES (PICURL, DESCRIPTION) VALUES ('https://media.wired.com/photos/593221e12a990b06268a8efa/master/w_1600,c_limit/Clap-giphy-1.gif','lol444')
