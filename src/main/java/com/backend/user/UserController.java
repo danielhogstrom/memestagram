@@ -31,8 +31,6 @@ public class UserController {
     @PostMapping("/validate")
     boolean loginUser(@RequestBody LoginForm loginForm, HttpSession session){
 
-
-
         if (repository.findByUsername(loginForm.getUsername()) == null) {
             return false;
         }else {
@@ -47,7 +45,6 @@ public class UserController {
     User getUser(@PathVariable("username") String username){
         return repository.findByUsername(username);
     }
-
 
 
 }
