@@ -9,7 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 @RequestMapping("/api/user")
 @RestController
 public class UserController {
@@ -44,7 +44,6 @@ public class UserController {
     @PostMapping("/images")
     public String addPicture(@RequestParam MultipartFile imageFile) throws Exception {
         service.saveImageAWS(imageFile);
-
         return "Din bild har skickats";
     }
         //to see a specific users page

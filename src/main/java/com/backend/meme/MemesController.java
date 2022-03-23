@@ -9,7 +9,7 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequestMapping("/api/meme")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 public class MemesController {
 
     @Autowired
@@ -30,8 +30,4 @@ public class MemesController {
         log.info("New meme added to MemeRepository - {}", meme);
         return repository.save(meme);
     }
-
-
-
-
 }
