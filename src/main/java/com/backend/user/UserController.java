@@ -46,11 +46,12 @@ public class UserController {
         service.saveImageAWS(imageFile);
 
         return "Din bild har skickats";
-    //to see a specific users page
-    @GetMapping("/{username}")
-    User getUser(@PathVariable("username") String username){
-        return repository.findByUsername(username);
     }
+        //to see a specific users page
+        @GetMapping("/{username}")
+        User getUser (@PathVariable ("username") String username){
+            return repository.findByUsername(username);
+        }
 
 
 
