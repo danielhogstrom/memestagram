@@ -19,6 +19,18 @@ public class UserController {
     @Autowired
     UserRepository repository;
 
+                         // AWS //
+    @PostMapping("/images")
+    public String addPicture(@RequestParam MultipartFile imageFile) throws Exception {
+        service.saveImage(imageFile);
+        service.saveImageAWS(imageFile);
+        return "Din bild har skickats";
+    }
+                        //    //
+
+
+                        //USER//
+
     @PostMapping("/add")
     public User addUser(@RequestBody User user) {
         return repository.save(user);
@@ -36,7 +48,7 @@ public class UserController {
         if (repository.findByUsername(loginForm.getUsername()) == null) {
             return false;
         }else {
-            session.setAttribute("username", loginForm.getUsername());
+            session.setAttribute("currentUser", loginForm.getUsername());
             return service.validate(repository.findByUsername(loginForm.getUsername()), loginForm.getPassword());
         }
 
@@ -44,25 +56,12 @@ public class UserController {
     //to see a specific users page
     @GetMapping("/{username}")
     User getUser(@PathVariable("username") String username, HttpSession session){
-      /*  if(username.equals(session.getAttribute("currentUser"))){
-            return
-        } else {
-        }*/
-        return repository.findByUsername(username);
-    }
-
-
-    @PostMapping("/images")
-    public String addPicture(@RequestParam MultipartFile imageFile) throws Exception {
-        service.saveImage(imageFile);
-        service.saveImageAWS(imageFile);
-        return "Din bild har skickats";
-    }
-        //to see a specific users page
-        @GetMapping("/{username}")
-        User getUser (@PathVariable ("username") String username){
+        if(username.equals(session.getAttribute("currentUser"))) {
             return repository.findByUsername(username);
         }
+        return null;
+    }
+
 
     @PostMapping("/removeSession")
     public int logOut(HttpSession session, HttpServletResponse response){
