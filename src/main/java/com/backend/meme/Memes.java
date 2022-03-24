@@ -19,7 +19,7 @@ public class Memes {
     private String memeCreatedByUser;
     private Long likes;
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
 
