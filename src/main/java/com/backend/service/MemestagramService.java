@@ -1,17 +1,7 @@
 package com.backend.service;
 
-import com.amazonaws.HttpMethod;
-import com.amazonaws.annotation.Immutable;
-import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
-import com.amazonaws.services.s3.model.CannedAccessControlList;
-import com.amazonaws.services.s3.model.GeneratePresignedUrlRequest;
-import com.amazonaws.services.s3.model.PutObjectRequest;
-import com.backend.meme.Memes;
-import com.backend.meme.MemesRepository;
 import com.backend.user.User;
-import com.backend.user.UserController;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 

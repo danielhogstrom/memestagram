@@ -6,11 +6,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface MemesRepository extends JpaRepository<Memes, Long> {
-
-    List<Memes> findByMemeCreatedByUser(String memeCreatedByUser);
-
-
-
+public interface MemesRepository extends JpaRepository<Meme, Long> {
 
 }

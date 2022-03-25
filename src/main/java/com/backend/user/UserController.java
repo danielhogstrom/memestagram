@@ -1,11 +1,9 @@
 package com.backend.user;
 
-import com.backend.meme.Memes;
 import com.backend.service.MemestagramService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.bind.support.SessionStatus;
 
 import javax.servlet.http.*;
 import java.util.List;

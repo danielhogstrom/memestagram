@@ -1,10 +1,14 @@
 package com.backend.meme;
 
+import com.backend.user.User;
+import com.backend.user.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.nio.file.Path;
 import java.util.List;
+import java.util.Set;
 
 @Slf4j
 @RestController
@@ -14,26 +18,31 @@ public class MemesController {
 
     @Autowired
     MemesRepository repository;
+    @Autowired
+    UserRepository userRepository;
 
     @GetMapping("/all")
-    List<Memes> findAll() {
+    List<Meme> findAll() {
         return repository.findAll();
     }
 
     @GetMapping("/{user}")
-    List<Memes> findByUser(@PathVariable String user) {
-        return repository.findByMemeCreatedByUser(user);
+    Set<Meme> findByUser(@PathVariable Long id) {
+        User user = userRepository.findById(id).get();
+        return user.getMyMemes();
     }
 
-    @PostMapping("/add")
-    Memes postMeme(@RequestBody Memes meme) {
+    @PostMapping("/{id}/add")
+    Meme postMeme(@RequestBody Meme meme, @PathVariable Long id) {
+        User user = userRepository.findById(id).get();
+        meme.setCreator(user);
         log.info("New meme added to MemeRepository - {}", meme);
         return repository.save(meme);
     }
 
     @PutMapping("/id/{id}/likes/{likes}")
         public void editLikes (@PathVariable Long id, @PathVariable Long likes) {
-        Memes meme = repository.getById(id);
+        Meme meme = repository.getById(id);
         meme.setLikes(likes);
         repository.save(meme);
     }
