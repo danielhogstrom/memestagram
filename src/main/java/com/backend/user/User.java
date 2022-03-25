@@ -31,6 +31,7 @@ public class User {
     private String email;
     private String bio;
     @OneToMany(mappedBy = "creator", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    @JsonIgnore
     private Set<Meme> myMemes;
 
     public User() {
