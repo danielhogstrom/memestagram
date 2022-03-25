@@ -10,7 +10,7 @@ import org.springframework.web.bind.support.SessionStatus;
 import javax.servlet.http.*;
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 @RequestMapping("/api/user")
 @RestController
 public class UserController {
