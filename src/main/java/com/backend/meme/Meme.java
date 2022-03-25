@@ -1,15 +1,14 @@
 package com.backend.meme;
 
 import com.backend.user.User;
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 
 @Entity
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property="id")
 public class Meme {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
@@ -20,6 +19,7 @@ public class Meme {
     private Long likes;
     @ManyToOne
     @JoinColumn(name = "user_id")
+    @JsonBackReference
     private User creator;
 
     public Meme(Long id, String picurl, String description, Long likes, User creator) {
