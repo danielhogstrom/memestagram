@@ -24,13 +24,7 @@ public class MemestagramService {
         return password.equals(user.getPassword());
     }
 
-    public void saveImage(MultipartFile imageFile) throws Exception {
-        String folder = "/photos/";
-        byte[] bytes = imageFile.getBytes();
-        Path path = Paths.get(folder + imageFile.getOriginalFilename());
-        Files.write(path, bytes);
 
-    }
 
 
 
