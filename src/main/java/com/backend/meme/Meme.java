@@ -19,7 +19,6 @@ public class Meme {
     private Long likes;
     @ManyToOne
     @JoinColumn(name = "user_id")
-    @JsonBackReference
     private User creator;
 
     public Meme(Long id, String picurl, String description, Long likes, User creator) {
