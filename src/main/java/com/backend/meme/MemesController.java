@@ -10,10 +10,10 @@ import java.nio.file.Path;
 import java.util.List;
 import java.util.Set;
 
+@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 @Slf4j
 @RestController
 @RequestMapping("/api/meme")
-@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 public class MemesController {
 
     @Autowired
@@ -40,10 +40,11 @@ public class MemesController {
         return repository.save(meme);
     }
 
-    @PutMapping("/id/{id}/likes/{likes}")
+    @PutMapping("/{id}/{likes}")
         public void editLikes (@PathVariable Long id, @PathVariable Long likes) {
         Meme meme = repository.getById(id);
         meme.setLikes(likes);
+        System.out.println("meme liked");
         repository.save(meme);
     }
 
