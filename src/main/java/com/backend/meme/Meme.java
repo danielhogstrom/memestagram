@@ -8,7 +8,6 @@ import javax.persistence.*;
 import javax.validation.constraints.Size;
 
 @Entity
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property="id")
 public class Meme {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
@@ -70,5 +69,10 @@ public class Meme {
 
     public void setCreator(User creator) {
         this.creator = creator;
+    }
+
+    @Override
+    public String toString(){
+        return this.picurl;
     }
 }

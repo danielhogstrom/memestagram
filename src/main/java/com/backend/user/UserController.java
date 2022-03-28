@@ -8,7 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.*;
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
+@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true", allowedHeaders = "*")
 @RequestMapping("/api/user")
 @RestController
 public class UserController {

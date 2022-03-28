@@ -13,7 +13,7 @@ import java.util.Set;
 @Slf4j
 @RestController
 @RequestMapping("/api/meme")
-@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
+@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true", allowedHeaders = "*")
 public class MemesController {
 
     @Autowired
@@ -35,9 +35,10 @@ public class MemesController {
     @PostMapping("/{id}/add")
     Meme postMeme(@RequestBody Meme meme, @PathVariable Long id) {
         User user = userRepository.findById(id).get();
-        meme.setCreator(user);
-        log.info("New meme added to MemeRepository - {}", meme);
-        return repository.save(meme);
+        Meme persistedMeme = repository.save(meme);
+        persistedMeme.setCreator(user);
+        log.info("New meme added to MemeRepository - {} by user {}", meme, user);
+        return repository.save(persistedMeme);
     }
 
     @PutMapping("/id/{id}/likes/{likes}")

@@ -17,7 +17,6 @@ import java.util.Set;
 
 @Entity
 @Table(name = "usertable")
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property="id")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,7 +28,7 @@ public class User {
     @Email
     private String email;
     private String bio;
-    @OneToMany(mappedBy = "creator", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    @OneToMany(mappedBy = "creator", cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<Meme> myMemes;
 
@@ -91,5 +90,10 @@ public class User {
 
     public void setMyMemes(Set<Meme> myMemes) {
         this.myMemes = myMemes;
+    }
+
+    @Override
+    public String toString(){
+        return this.username;
     }
 }
