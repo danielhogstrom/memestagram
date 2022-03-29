@@ -13,7 +13,6 @@ public class Meme {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
     private String picurl;
-    @Size(min = 2, max = 100)
     private String description;
     private Long likes;
     @ManyToOne
