@@ -44,11 +44,11 @@ public class UserController {
     }
     //to see a specific users page
     @GetMapping("/{username}")
-    User getUser(@PathVariable("username") String username, HttpSession session){
-        if(username.equals(session.getAttribute("currentUser"))) {
+    User getUser(@PathVariable("username") String username){
+
             return repository.findByUsername(username);
-        }
-        return null;
+
+
     }
 
 
