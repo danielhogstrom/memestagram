@@ -6,12 +6,12 @@ import javax.persistence.*;
 public class UserFollow {
 
     @Id
-    @Column
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long followId;
 
     @ManyToOne
-    @JoinColumn(name = "userId", nullable = false)
-    private User user;
+    @JoinColumn(name = "user_id")
+    private User friend;
 
     public Long getfollowId() {
         return followId;
@@ -22,11 +22,11 @@ public class UserFollow {
     }
 
     public User getUser() {
-        return user;
+        return friend;
     }
 
     public void setUser(User user) {
-        this.user = user;
+        this.friend = user;
     }
 
 }

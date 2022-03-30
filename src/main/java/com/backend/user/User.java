@@ -18,9 +18,9 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Size(min=3, max=30)
+    @Size(min = 3, max = 30)
     private String username;
-    @Size(min=6, max=30)
+    @Size(min = 6, max = 30)
     private String password;
     @Email
     private String email;
@@ -28,8 +28,8 @@ public class User {
     @OneToMany(mappedBy = "creator", cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<Meme> myMemes;
-    @ManyToOne
-    @JoinTable(name = "user_follow", joinColumns = @JoinColumn(name = "userId") , inverseJoinColumns = @JoinColumn(name = "followId") )
+    @OneToMany(mappedBy = "friend", cascade = CascadeType.ALL)
+    @JsonIgnore
     private Set<UserFollow> userfollow;
 
 
@@ -94,7 +94,7 @@ public class User {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return this.username;
     }
 
