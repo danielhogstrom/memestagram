@@ -1,13 +1,18 @@
 package com.backend.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 @Entity
 @Table(name = "user_follow")
+@JsonIgnoreProperties(value = {"hibernateLazyInitializer","handler"})
+
 public class UserFollow {
 
     @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long followId;
+
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -31,4 +36,11 @@ public class UserFollow {
         this.friend = user;
     }
 
+    public User getListOwner() {
+        return listOwner;
+    }
+
+    public void setListOwner(User listOwner) {
+        this.listOwner = listOwner;
+    }
 }
