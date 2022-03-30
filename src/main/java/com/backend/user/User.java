@@ -14,6 +14,8 @@ import java.util.Set;
 
 @Entity
 @Table(name = "usertable")
+@JsonIgnoreProperties(value = {"hibernateLazyInitializer","handler"})
+
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
