@@ -1,5 +1,6 @@
 package com.backend.user;
 
+import com.backend.meme.Meme;
 import com.backend.service.MemestagramService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -7,6 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.*;
 import java.util.List;
+import java.util.Set;
 
 @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true", allowedHeaders = "*")
 @RequestMapping("/api/user")
@@ -17,9 +19,6 @@ public class UserController {
     @Autowired
     UserRepository repository;
 
-
-
-                        //USER//
 
     @PostMapping("/add")
     public User addUser(@RequestBody User user) {
@@ -68,6 +67,17 @@ public class UserController {
         return 1;
     }
 
+/*    @PutMapping("/follow/{id}")
+    public void follow(@PathVariable Long id, @RequestBody User user){
+        User fan = repository.getById(id);
+        fan.setUserfollow(user);
 
+        repository.save(fan);
+    }*/
+
+    /*Id för att identifiera vem vi ska följa
+    * Id för vem jag är.
+    * Dessa id's ska kopplas ihop
+    * Set*/
 
 }

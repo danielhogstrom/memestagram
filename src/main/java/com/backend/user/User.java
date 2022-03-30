@@ -3,14 +3,11 @@ package com.backend.user;
 
 import com.backend.meme.Meme;
 import com.fasterxml.jackson.annotation.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -31,6 +28,10 @@ public class User {
     @OneToMany(mappedBy = "creator", cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<Meme> myMemes;
+    @ManyToOne
+    @JoinTable(name = "user_follow", joinColumns = @JoinColumn(name = "userId") , inverseJoinColumns = @JoinColumn(name = "followId") )
+    private Set<UserFollow> userfollow;
+
 
     public User() {
     }
@@ -95,5 +96,13 @@ public class User {
     @Override
     public String toString(){
         return this.username;
+    }
+
+    public Set<UserFollow> getUserfollow() {
+        return userfollow;
+    }
+
+    public void setUserfollow(Set<UserFollow> userfollow) {
+        this.userfollow = userfollow;
     }
 }
