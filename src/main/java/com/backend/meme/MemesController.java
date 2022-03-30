@@ -6,7 +6,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.nio.file.Path;
 import java.util.List;
 import java.util.Set;
 
@@ -41,13 +40,28 @@ public class MemesController {
         return repository.save(persistedMeme);
     }
 
-    @PutMapping("/id/{id}/likes/{likes}")
-        public void editLikes (@PathVariable Long id, @PathVariable Long likes) {
-        Meme meme = repository.getById(id);
-        meme.setLikes(likes);
+    @GetMapping("/addLike/{id}")
+        public Long addLike (@PathVariable Long id) {
+        Meme meme = repository.findById(id).get();
+        meme.setLikes(meme.getLikes() +1);
         repository.save(meme);
+        log.info("Added like to meme id {}", meme.getId());
+        return meme.getLikes();
     }
 
+
+    @GetMapping("/removeLike/{id}")
+    public Long removeLike (@PathVariable Long id) {
+        Meme meme = repository.findById(id).get();
+        meme.setLikes(meme.getLikes() -1);
+        repository.save(meme);
+        log.info("Removed like to meme id {}", meme.getId());
+        return meme.getLikes();
+    }
+    @GetMapping("/getNumberOfLikes/{id}")
+    public Long getNumberOfLikes(@PathVariable Long id){
+        return repository.findById(id).get().getLikes();
+    }
     @DeleteMapping("/delete/id/{id}")
         public void deleteMeme (@PathVariable Long id){
         repository.deleteById(id);
