@@ -28,7 +28,7 @@ public class User {
     @OneToMany(mappedBy = "creator", cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<Meme> myMemes;
-    @OneToMany(mappedBy = "friend", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "listOwner", cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<UserFollow> userfollow;
 

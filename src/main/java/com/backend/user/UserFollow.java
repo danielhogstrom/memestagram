@@ -11,6 +11,8 @@ public class UserFollow {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
+    private User listOwner;
+    @OneToOne
     private User friend;
 
     public Long getfollowId() {
