@@ -1,12 +1,12 @@
 INSERT INTO USERTABLE (USERNAME, PASSWORD, EMAIL, BIO, AVATAR) VALUES ('Ante', 'password123', 'ante@mail.com', 'Tja, Ante heter jag, gillar memes och sånt. Ha det gött, tjooo!', 'https://i.postimg.cc/G4GzqdhY/7.jpg');
-INSERT INTO USERTABLE (USERNAME, PASSWORD, EMAIL, BIO, AVATAR) VALUES ('Chris', 'password123', 'chris@mail.com', 'Tja, Chris heter jag, gillar memes och sånt. Ha det gött, tjooo!', 'https://i.postimg.cc/1n9W82SF/3.jpg');
-INSERT INTO USERTABLE (USERNAME, PASSWORD, EMAIL, BIO, AVATAR) VALUES ('Samuel', 'password123', 'samuel@mail.com', 'Tja, Samuel heter jag, gillar memes och sånt. Ha det gött, tjooo!', 'https://i.postimg.cc/nMSdL3Ps/9.jpg');
-INSERT INTO USERTABLE (USERNAME, PASSWORD, EMAIL, BIO, AVATAR) VALUES ('Johan', 'password123', 'johan@mail.com', 'Tja, Johan heter jag, gillar memes och sånt. Ha det gött, tjooo!', 'https://i.postimg.cc/wt5fTHCH/1.jpg');
-INSERT INTO USERTABLE (USERNAME, PASSWORD, EMAIL, BIO, AVATAR) VALUES ('Nicke', 'password123', 'nicke@mail.com', 'Tja, Nicke heter jag, gillar memes och sånt. Ha det gött, tjooo!', 'https://i.postimg.cc/RN3gJwkg/8.jpg');
-INSERT INTO USERTABLE (USERNAME, PASSWORD, EMAIL, BIO, AVATAR) VALUES ('Hanna', 'password123', 'hanna@mail.com', 'Tja, Hanna heter jag, gillar memes och sånt. Ha det gött, tjooo!', 'https://i.postimg.cc/JH0PqXG4/2.jpg');
-INSERT INTO USERTABLE (USERNAME, PASSWORD, EMAIL, BIO, AVATAR) VALUES ('Erika', 'password123', 'erika@mail.com', 'Tja, Erika heter jag, gillar memes och sånt. Ha det gött, tjooo!', 'https://i.postimg.cc/hzp2Ts45/5.jpg');
-INSERT INTO USERTABLE (USERNAME, PASSWORD, EMAIL, BIO, AVATAR) VALUES ('Amanda', 'password123', 'amanda@mail.com', 'Tja, Amanda heter jag, gillar memes och sånt. Ha det gött, tjooo!', 'https://i.postimg.cc/jCSgKpZ0/4.jpg');
-INSERT INTO USERTABLE (USERNAME, PASSWORD, EMAIL, BIO, AVATAR) VALUES ('Daniel', 'password123', 'daniel@mail.com', 'Tja, Daneil heter jag, gillar memes och sånt. Ha det gött, tjooo!', 'https://i.postimg.cc/8jqtRjDN/6.jpg');
+INSERT INTO USERTABLE (USERNAME, PASSWORD, EMAIL, BIO, AVATAR) VALUES ('Chris', 'password123', 'chris@mail.com', 'Whaddup. Chris is the name and I post the dopest memes. so long!', 'https://i.postimg.cc/1n9W82SF/3.jpg');
+INSERT INTO USERTABLE (USERNAME, PASSWORD, EMAIL, BIO, AVATAR) VALUES ('Samuel', 'password123', 'samuel@mail.com', 'eat->sleep->meme->repeat', 'https://i.postimg.cc/nMSdL3Ps/9.jpg');
+INSERT INTO USERTABLE (USERNAME, PASSWORD, EMAIL, BIO, AVATAR) VALUES ('Johan', 'password123', 'johan@mail.com', 'make memes not war', 'https://i.postimg.cc/wt5fTHCH/1.jpg');
+INSERT INTO USERTABLE (USERNAME, PASSWORD, EMAIL, BIO, AVATAR) VALUES ('Nicke', 'password123', 'nicke@mail.com', 'original troll of memestagram', 'https://i.postimg.cc/RN3gJwkg/8.jpg');
+INSERT INTO USERTABLE (USERNAME, PASSWORD, EMAIL, BIO, AVATAR) VALUES ('Hanna', 'password123', 'hanna@mail.com', 'All i do is meme, meme, meme no matter what!', 'https://i.postimg.cc/JH0PqXG4/2.jpg');
+INSERT INTO USERTABLE (USERNAME, PASSWORD, EMAIL, BIO, AVATAR) VALUES ('Erika', 'password123', 'erika@mail.com', 'what am I even doing here?', 'https://i.postimg.cc/hzp2Ts45/5.jpg');
+INSERT INTO USERTABLE (USERNAME, PASSWORD, EMAIL, BIO, AVATAR) VALUES ('Amanda', 'password123', 'amanda@mail.com', 'bonkers 4 memes', 'https://i.postimg.cc/jCSgKpZ0/4.jpg');
+INSERT INTO USERTABLE (USERNAME, PASSWORD, EMAIL, BIO, AVATAR) VALUES ('Daniel', 'password123', 'daniel@mail.com', 'AIK FOR LIFE <3', 'https://i.postimg.cc/8jqtRjDN/6.jpg');
 
 INSERT INTO MEME (PICURL, DESCRIPTION, LIKES, USER_ID) VALUES ('https://i.redd.it/uqk46zan8zo81.jpg','Finally someone who understands my humor!!', 12, 1);
 INSERT INTO MEME (PICURL, DESCRIPTION, LIKES, USER_ID) VALUES ('https://i.imgur.com/x51rrjw.jpeg','Thats a mental illness, right??',11, 2);
