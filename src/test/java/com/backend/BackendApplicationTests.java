@@ -29,7 +29,7 @@ class BackendApplicationTests {
     @Test
     public void createUser() {
         Set<Meme> myMemes = new HashSet<>();
-        User user = new User(null, "User", "pw", "myemail@great.com", "asdgg", myMemes);
+        User user = new User(null, "User", "pw", "myemail@great.com", "asdgg", myMemes, null);
         assertThat(user.getUsername()).isEqualTo("User");
         assertThat(user.getEmail()).isEqualTo("myemail@great.com");
     }

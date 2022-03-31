@@ -33,18 +33,20 @@ public class User {
     @OneToMany(mappedBy = "listOwner", cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<UserFollow> userfollow;
+    private String avatar;
 
 
     public User() {
     }
 
-    public User(Long id, String username, String password, String email, String bio, Set<Meme> myMemes) {
+    public User(Long id, String username, String password, String email, String bio, Set<Meme> myMemes, String avatar) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.email = email;
         this.bio = bio;
         this.myMemes = myMemes;
+        this.avatar = avatar;
     }
 
     public Long getId() {
@@ -106,5 +108,13 @@ public class User {
 
     public void setUserfollow(Set<UserFollow> userfollow) {
         this.userfollow = userfollow;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String bio) {
+        this.avatar = avatar;
     }
 }
