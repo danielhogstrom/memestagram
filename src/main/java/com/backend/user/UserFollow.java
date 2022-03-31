@@ -20,6 +20,15 @@ public class UserFollow {
     @OneToOne
     private User friend;
 
+    public UserFollow( User listOwner, User friend) {
+
+        this.listOwner = listOwner;
+        this.friend = friend;
+    }
+
+    public UserFollow() {
+    }
+
     public Long getfollowId() {
         return followId;
     }

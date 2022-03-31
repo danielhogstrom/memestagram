@@ -34,25 +34,42 @@ public class MemestagramService {
         return password.equals(user.getPassword());
     }
 
-    public int followers(Long id) {
-        List<Long> followList = repository.followList(id);
-        return followList.size();
+    public int followedByMe(Long id) {
+        List<Long> followByMeList = repository.followList(id);
+        return followByMeList.size();
 
     }
 
-    public List<User> getFollower(Long id) {
-        List<Long> followers = repository.followList(id);
-        List<User> userList = new ArrayList<>();
+    public List<User> followedByMeByName(Long id) {
+        List<Long> followedByMeList = repository.followList(id);
+        List<User> followedByMeNames = new ArrayList<>();
 
-        for (int i = 0; i < followers.size(); i++) {
-            userList.add(repository.getById((followers.get(i))));
-            System.out.println(userList.get(i));
+        for (int i = 0; i < followedByMeList.size(); i++) {
+            followedByMeNames.add(repository.getById((followedByMeList.get(i))));
+            System.out.println(followedByMeNames.get(i));
 
         }
-        System.out.println(userList.get(0));
-        return userList ;
+
+        return followedByMeNames ;
+    }
+    public int myFollowers(Long id) {
+        List<Long> myFollowers = repository.followingList(id);
+        return myFollowers.size();
+
     }
 
+    public List<User> myFollowersByNames(Long id) {
+        List<Long> followedByMeList = repository.followingList(id);
+        List<User> followedByMeNames = new ArrayList<>();
+
+        for (int i = 0; i < followedByMeList.size(); i++) {
+            followedByMeNames.add(repository.getById((followedByMeList.get(i))));
+            System.out.println(followedByMeNames.get(i));
+
+        }
+
+        return followedByMeNames ;
+    }
 
 }
 

@@ -73,38 +73,9 @@ public class UserController {
         return 1;
     }
 
-    @GetMapping("/followcount/{id}")
-    public int seeFavorites(@PathVariable Long id) {
-        service.getFollower(id);
-        service.followers(id);
-        return service.followers(id);
-
-
-    }
-
-    @GetMapping("/followers/{id}")
-    public List<User> followers(@PathVariable Long id) {
-        List<User> followList = service.getFollower(id);
-        System.out.println(followList.get(0));
-
-        return followList;
-    }
 
 
 
 
-
-/*    @PutMapping("/follow/{id}")
-    public void follow(@PathVariable Long id, @RequestBody User user){
-        User fan = repository.getById(id);
-        fan.setUserfollow(user);
-
-        repository.save(fan);
-    }*/
-
-    /*Id för att identifiera vem vi ska följa
-     * Id för vem jag är.
-     * Dessa id's ska kopplas ihop
-     * Set*/
 
 }
